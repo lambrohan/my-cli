@@ -1,5 +1,5 @@
 {
-  "name": "lambrohan-cli",
+  "name": "rl-cli",
   "type": "module",
   "version": "0.0.0",
   "packageManager": "pnpm@8.15.3",
@@ -9,14 +9,8 @@
   "keywords": [],
   "sideEffects": false,
   "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
-    }
+    ".": "./dist/index.mjs"
   },
-  "main": "./dist/index.mjs",
-  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "typesVersions": {
     "*": {
@@ -26,11 +20,15 @@
       ]
     }
   },
+  "bin": {
+    "rl-cli": "./bin/rl-cli.mjs"
+  },
   "files": [
+    "bin",
     "dist"
   ],
   "scripts": {
-    "build": "unbuild",
+    "build": "unbuild && chmod +x ./dist/index.mjs",
     "dev": "unbuild --stub",
     "lint": "eslint .",
     "prepublishOnly": "nr build",

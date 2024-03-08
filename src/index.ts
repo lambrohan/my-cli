@@ -1,4 +1,6 @@
-import { runMain } from 'citty'
+import { runMain as _runMain } from 'citty'
 import { main } from './main'
 
-runMain(main)
+export function runMain() {
+  return _runMain(main)
+}
